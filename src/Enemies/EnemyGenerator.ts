@@ -1,9 +1,7 @@
 import { Enemy } from '../Enemies/Enemy';
 
 function Generate(statStatic: number, playerLevel: number): number {
-    let x: number = Math.floor((Math.floor(Math.random() * playerLevel) + 1) + (statStatic * playerLevel)/2);
-    console.log(x);
-    return x;
+    return Math.floor((Math.floor(Math.random() * playerLevel) + 1) + (statStatic * playerLevel)/2);
 }
 
 export class Slime implements Enemy {
