@@ -1,24 +1,16 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+import {Slime} from './Enemies/EnemyGenerator'
+import {PlayerData} from './Player/Player'
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
+let player: PlayerData = new PlayerData('Player', 100, 100, 10, 0)
+let slime: Slime = new Slime("Slime", player.level)
+
+
+document.querySelector<HTMLDivElement>('#app')!.innerHTML = 
 `
-
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+<div>
+    <h1>${slime.name}</h1>
+    <p>Level: ${slime.level}</p>
+    <p>Health: ${slime.health}</p>
+    <p>XP Drop: ${slime.xpDrop}</p>
+</div>
+`
